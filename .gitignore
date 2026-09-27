@@ -1,0 +1,7 @@
+# Blizzard's game files are never committed - the installer patches the user's own copy
+*.exe
+*.before-camfix
+patched/
+dist/
+__pycache__/
+venv/
