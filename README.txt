@@ -16,6 +16,12 @@ Same idea as the Turtle WoW / vanilla-tweaks "camera skip glitch fix"
 (credit: Bon, Turtle WoW Discord), rebuilt for the Cataclysm client. It
 rewrites one small function inside Wow.exe. Nothing else is touched.
 
+Updating from 1.0.0
+-------------------
+Replace CataCameraFix.ps1 in your WoW folder with this one (the .bat
+files are the same), close WoW, and run "Install Camera Fix.bat" again.
+It should end with "Auto-fix is on".
+
 Install (easy way)
 ------------------
 1. Close WoW.
@@ -26,13 +32,26 @@ Install (easy way)
 3. Double-click "Install Camera Fix.bat".
    A backup is saved as Wow.exe.before-camfix the first time.
 
-If the TwinStar launcher ever puts the original Wow.exe back, just run
-"Install Camera Fix.bat" again.
+That's it. Start the game the way you normally do.
+
+Auto-fix
+--------
+Some launchers put the original Wow.exe back now and then (after an
+update or a file check). Install also turns on auto-fix: a small hidden
+watcher that starts with Windows and puts the fix back within a few
+seconds whenever that happens. If the game is running at that moment,
+it waits until you close it.
+
+- It writes what it did to CataCameraFix.log in your WoW folder.
+- If something keeps putting the original back, it pauses for 15
+  minutes instead of fighting it.
+- Don't want it? Run this in PowerShell from your WoW folder instead:
+    powershell -ExecutionPolicy Bypass -File CataCameraFix.ps1 -NoAuto
 
 Remove
 ------
-Double-click "Remove Camera Fix.bat" (or copy Wow.exe.before-camfix back
-over Wow.exe).
+Double-click "Remove Camera Fix.bat". It turns auto-fix off and puts the
+original Wow.exe back.
 
 Notes
 -----

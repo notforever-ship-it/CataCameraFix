@@ -6,6 +6,10 @@ Tested on TwinStar. Should work on any server that uses the standard 4.3.4 (1559
 
 Made by stealthzi.
 
+> **Using version 1.0.0? Please update.** Some launchers (TwinStar's included) put the original `Wow.exe` back now and then, which quietly removes the fix, and the camera snapping comes back. Version 1.1.0 puts the fix back by itself.
+>
+> **To update:** [download the latest release](../../releases/latest), replace `CataCameraFix.ps1` in your WoW folder with the new one (the `.bat` files are the same), close WoW, and run **Install Camera Fix.bat** again. It should end with *Auto-fix is on*.
+
 ## Install
 
 1. [Download the latest release](../../releases/latest) and unzip it.
@@ -19,11 +23,17 @@ Made by stealthzi.
 
 The first time, a backup of your original exe is saved as `Wow.exe.before-camfix`.
 
-If your launcher ever puts the original `Wow.exe` back, run **Install Camera Fix.bat** again.
+### Auto-fix
+
+Some launchers put the original `Wow.exe` back now and then, after an update or a file check. Install also turns on **auto-fix**: a small hidden watcher that starts with Windows and puts the fix back within a few seconds whenever that happens. If the game is running at that moment, it waits until you close it.
+
+- It writes what it did to `CataCameraFix.log` in your WoW folder.
+- If something keeps putting the original back, it pauses for 15 minutes instead of fighting it.
+- To install without auto-fix, run `powershell -ExecutionPolicy Bypass -File CataCameraFix.ps1 -NoAuto` from your WoW folder.
 
 ## Remove
 
-Double-click **Remove Camera Fix.bat**. Or copy `Wow.exe.before-camfix` back over `Wow.exe`.
+Double-click **Remove Camera Fix.bat**. It turns auto-fix off (stops the watcher and removes its startup shortcut) and puts the original `Wow.exe` back.
 
 ## What causes the bug
 
